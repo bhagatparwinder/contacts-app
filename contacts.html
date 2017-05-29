@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Solstice</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body ng-app="ContactsApp">
+    <div class="row" ng-controller="contactsController">
+        <div class="col-lg-3 list-container">
+            <div class="input-group">
+                <input type="text" ng-model="search.name" class="form-control" placeholder="Search contacts">
+                <span class="input-group-addon" id="basic-addon1">
+                <i class="glyphicon glyphicon-search"></i>
+            </span>
+            </div>
+
+            <div ng-cloak class="col-lg-12 contact-row animate" ng-repeat="contact in contacts | filter:search:strict">
+                <div ng-click="contactDetail(contact.birthdate)" class="contact-image">
+                    <img err-src="assets/avatar_small.png" ng-src="{{contact.smallImageURL}}" />
+                </div>
+                <div ng-click="contactDetail(contact.birthdate)" class="contact-info">
+                    <span class="contact-name">{{contact.name}}</span>
+                    <span data-toggle="tooltip" title="Favorite contact" ng-if="contact.favorite" class="glyphicon glyphicon-heart"></span>
+                    <br> {{contact.phone.work}}
+                </div>
+            </div>
+        </div>
+        <ng-switch class="col-lg-9 col-xs-12" on="anyItemOpen()">
+            <div ng-cloak class="detail-container" ng-switch-when="true">
+                <a href="#" class="close-details" ng-click="close()">
+                    <span class="glyphicon glyphicon-chevron-left"></span> All Contacts
+                </a>
+                <h3>Contact Details</h3>
+                <img err-src="assets/avatar_large.png" ng-src="{{currentContact.largeImageURL}}" />
+                <div class="profile-headline">
+                    <div class="name">{{currentContact.name}}</div>
+                    <label>Company:</label>
+                    <div class="company">{{currentContact.company}}</div>
+                </div>
+                <div>
+                    <label>Phone:</label>
+                    <div class="phone" ng-repeat="(key, value) in currentContact.phone">
+                        <div class="number">{{value}}</div>
+                        <div class="type">{{key}}</div>
+                    </div>
+                    <label>Address:</label>
+                    <div class="address">
+                        <div class="street">{{currentContact.address.street}}</div>
+                        <div class="city">{{currentContact.address.city}}, {{currentContact.address.state}} {{currentContact.address.zip}}</div>
+                    </div>
+                    <label>Birthday:</label>
+                    <div class="birthday">{{currentContact.birthdate * 1000 | date:'MMM d, yyyy'}}</div>
+                    <label>Email:</label>
+                    <div class="email">{{currentContact.email}}</div>
+                    <label>Website:</label>
+                    <div class="website">{{currentContact.website}}</div>
+                    <a href="{{currentContact.website}}">
+                        <span class="glyphicon glyphicon-globe"></span>
+                    </a>
+                </div>
+            </div>
+        </ng-switch>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script src="src/app.js"></script>
+</body>
+
+</html>

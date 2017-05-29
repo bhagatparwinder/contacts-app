@@ -1,2 +1,11 @@
-# contacts-app
-A list &amp; detail view contacts app. Cause we can definitely use another contacts app /s
+#To Run
+
+### Start a local http server
+```npm install -g http-server```
+
+```cd contacts-app```
+
+```http-server```
+
+### Navigate to
+```http://localhost:8080/contacts.html```

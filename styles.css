@@ -1,0 +1,122 @@
+@import url("//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css");
+
+/*Global styles*/
+
+body {
+    overflow-x: hidden;
+}
+
+label {
+    color: #666;
+    font-weight: normal;
+    font-size: 16px;
+    display: block;
+    clear: both;
+    margin: 10px 0 0;
+}
+
+
+/*Contact list styles*/
+
+.input-group {
+    margin-top: 30px;
+}
+
+.list-container>div {
+    overflow-y: hidden;
+    padding: 10px 40px;
+}
+
+.contact-row {
+    background: #eee;
+    background-clip: content-box;
+}
+
+.contact-info {
+    padding-left: 10px;
+    vertical-align: middle;
+}
+
+.contact-image,
+.contact-info {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.contact-name {
+    font-weight: bold;
+}
+
+.contact-row .glyphicon-heart {
+    position: absolute;
+    right: 50px;
+    top: 25px;
+    color: #c03;
+}
+
+
+/*Contact details styles*/
+
+.detail-container h3 {
+    margin: 15px 0 20px;
+}
+
+.detail-container {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.detail-container img {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.profile-headline,
+.website {
+    display: inline-block;
+}
+
+.name {
+    font-size: 20px;
+    color: #c03;
+}
+
+.phone {
+    clear: both;
+    overflow: hidden;
+    max-width: 500px;
+}
+
+.number {
+    float: left;
+}
+
+.type {
+    float: right;
+}
+
+a.close-details {
+    margin-top: 40px;
+    display: block;
+    color: #c03;
+}
+
+a.close-details:hover {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+    *[class*='col-xs'] {
+        padding: 40px;
+    }
+    .detail-container img {
+        margin-right: 10px;
+    }
+    a.close-details {
+        margin-top: 0;
+    }
+    .contact-name {
+        max-width: 155px !important;
+        display: inline-block;
+    }
+}
